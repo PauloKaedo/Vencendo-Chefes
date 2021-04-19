@@ -1,0 +1,283 @@
+{
+    "boss": [
+        {
+            "id": 1,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Resident Evil 3",
+                "avatar": "resident3.jpg"
+            },
+            "hard": 5,
+            "easy": 3,
+            "enemy": {
+                "name": "Nemesis",
+                "description": "Nemesis, também chamado de Pursuer ou Chaser, é um personagem fictício da série Resident Evil. Criado pela Capcom, apareceu pela primeira vez em Resident Evil 3.",
+                "detonated": "Quando estiver controlando a Jill, sempre que encontrar uma granada (a normal, não a de atordoamento), guarde-a e não hesite em joga-las em Nemesis quando ele a perseguir na cidade.\nO dano das granadas é alto e vai permitir que você ganhe tempo para se afastar mais dele.\nSempre que Nemesis estiver perseguindo a heroína do game, preste atenção nos geradores elétricos portáteis espalhados pelo cenário.\nAtire neles quando o monstrengo passar perto, pois Nemesis será eletrocutado e você ganha mais tempo para correr e despistá-lo!",
+                "difficulty": "Hard",
+                "avatar": "nemesis.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 2,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Final Fantasy VII",
+                "avatar": "ff7.jpg"
+            },
+            "hard": 7,
+            "easy": 1,
+            "enemy": {
+                "name": "Sephiroth",
+                "description": "Sephiroth é um personagem fictício e o principal antagonista de Final Fantasy VII desenvolvido pela Square",
+                "detonated":"Nesta batalha, passaremos por várias fases, nas quais teremos que enfraquecer nosso inimigo final, levando em consideração que é o mais poderoso que enfrentaremos ao longo do jogo, é ideal que sigamos alguns conselhos que nos permitam ter as melhores estratégias Nesta batalha, para isso, veremos Como vencer Sephiroth em cada uma das fases até chegar ao fim, continuando a leitura será necessário para alcançar as respostas, então vamos fazê-lo.",
+                "difficulty": "Super Hard",
+                "avatar": "sephiroth.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]  
+            
+        },
+
+        {
+            "id": 3,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Crash Bandicoot",
+                "avatar": "cbtc.jpg"
+            },
+            "hard": 1,
+            "easy": 4,
+            "enemy": {
+                "name": "Doctor Neo Cortex",
+                "description": "Doctor Neo Cortex é um personagem fictício e o principal antagonista da série de videogames Crash Bandicoot.",
+                "detonated": "Primeiro, desvie dos foguetes e do serrote de Mecha Bandicoot. Depois, fique de frente para Mecha Bandicoot e espere que ele atire bolas verdes como Neo Cortex fez. Quando ela chegar em você, use o giro para jogar a bola de volta para Mecha Bandicoot. Faça duas vezes para destruir um braço dele. Depois, ele usará apenas o serrote e lançará a bola verde. Jogue-a de volta para Mecha Bandicoot mais duas vezes. Depois, ele apenas atirará a bola verde. Jogue-a para Mecha Bandicoot por 3 vezes.",
+                "difficulty": "Easy",
+                "avatar": "neocortex.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 4,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Mega Man X",
+                "avatar": "megamanx.jpg"
+            },
+            "hard": 3,
+            "easy": 3,
+            "enemy": {
+                "name": "Sigma",
+                "description": "Sigma é o principal antagonista da série de videogames Mega Man X. Criado pelo Dr. Cain, Sigma foi considerado o melhor dos Reploids e foi o primeiro líder dos Maverick Hunters.",
+                "detonated": "No momento que a luta começar use um Hadoken para dar cabo dele, ou as coisas podem complicar muito, ele lança uma onda de energia fácil de desviar e tem um ataque onde fica se movendo em zigue-zague pelo cenário, esse não é tão fácil de desviar, por isso é bom acabar com a luta logo no início, pois o que vem depois vai exigir todos os sub-tanks cheios, de qualquer forma a arma mais eficiente contra ele é o Spark Shot.",
+                "difficulty": "Medium",
+                "avatar": "sigma.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 5,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Legend of Zelda",
+                "avatar": "zelda.jpg"
+            },
+            "hard": 3,
+            "easy": 4,
+            "enemy": {
+                "name": "Ganon",
+                "description": "Ganon também conhecido como Ganondorf em sua forma Gerudo, é o principal antagonista da série de jogos The Legend of Zelda",
+                "detonated": "Já no chão, ele pode usar a sua espada de um lado para o outro, criando uma série de bolas de fogo (e um fluxo de ar que podes montar com o teu Paraglider e que te permite disparar setas de cima) ou de cima para baixo que, se aterrar em ti, pode praticamente matar-te de uma única assentada.",
+                "difficulty": "Medium",
+                "avatar": "ganon.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 6,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Skyrim",
+                "avatar": "Skyrim.jpg"
+            },
+            "hard": 10,
+            "easy": 3,
+            "enemy": {
+                "name": "Alduin",
+                "detonated": "Os NPCs vão atirar no dragão enquanto voa, mas não há como infligir dano até que ele seja forçado a aterrissar com o “Dragonrend”. Um toque no botão para gritar já dispara a habilidade, o que pode atordoar o dragão depois que ele estiver no chão.",
+                "description": "Alduin, ou o Devorador de Mundos, como é conhecido pelos habitantes de Skyrim, é um dragão imensamente poderoso.",
+                "difficulty": "Hard",
+                "avatar": "alduin.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 7,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Street Fight II",
+                "avatar": "sf2.jpg"
+            },
+            "hard": 4,
+            "easy": 2,
+            "enemy": {
+                "name": "M. Bison",
+                "description": "M. Bison, também conhecido como Ditador, é um personagem de videogame criado pela Capcom. Apresentado pela primeira vez em Street Fighter II: The World Warrior.",
+                "detonated": "Assim, o amigo do Ryu ou deve pular horizontalmente e chutar ele no ar ou no solo, ou mandar Shoryukens (aprenda a executar todos os golpes de Street Fighter 2) quando ele estiver no ar.",
+                "difficulty": "Medium",
+                "avatar": "bison.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        },
+
+        {
+            "id": 8,
+            "dateCreated": "2021-04-10",
+            "game": {
+                "name": "Mortal Kombat 3",
+                "avatar": "mk3.jpg"
+            },
+            "hard": 8,
+            "easy": 2,
+            "enemy": {
+                "name": "Montaro",
+                "description": "Motaro é um personagem da franquia de jogos Mortal Kombat.Ele foi introduzido em Mortal Kombat 3 como sub-chefe principal do jogo.",
+                "detonated": "O salto com soco (jumping punch) é similar ao chute, mas com uma grande diferença: em vez de pular na direção de Motaro, dê um salto vertical e, então, dê um soco quando atingir o ponto mais alto do salto. Assim que o soco atingir Motaro e você aterrissar, salte para trás, fora do alcance dele, ou você será agarrado. A chave para usar esta tática é a precisão: você deve calcular seu salto de modo que atinja o topo no momento em que Motaro ficar ao seu alcance. Pule antes e você vai errar, socando o ar; pule tarde demais e ele vai bloqueá-lo antes que você possa atingi-lo.",
+                "difficulty": "Hard",
+                "avatar": "montaro.jpg"
+                
+            },
+
+            "comments":[
+                {
+                    "name": "Cloud",
+                    "comment": "Tenta não lutar parado contra ele!"
+                },
+                {
+                    "name": "Mark",
+                    "comment": "Se for atirar, atire com a Bazooka!"
+                },
+                {
+                    "name": "Stan",
+                    "comment": "Não vale a pena ficar fazendo confronto direto no começo do jogo."
+                }
+            ]
+            
+        }
+    ]
+}
