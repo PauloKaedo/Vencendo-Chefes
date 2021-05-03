@@ -4,11 +4,9 @@ import { Header } from 'react-native-elements'
 
 import { SearchBar, SameLine } from '../../assets/styles'
 
-import staticBoss from '../../assets/boss/boss.json'
+import { getBossList, getBossByName } from '../../api'
 import BossCard from '../../components/BossCard'
 import Icon from  'react-native-vector-icons/AntDesign'
-
-const FEED_LIMIT = 4
 
 export default class Boss extends React.Component {
     constructor(props) {
@@ -16,7 +14,7 @@ export default class Boss extends React.Component {
 
         this.state = {
             bossName: null,
-            nextPage: 0,
+            nextPage: 1,
             boss: [],
             loading: false,
             reload: false
@@ -31,41 +29,43 @@ export default class Boss extends React.Component {
         })
 
         if(bossName){
-            const bossByName = staticBoss.boss.filter(filtredBoss => filtredBoss.enemy.name.toLowerCase().includes(bossName))
-
-            this.setState({
-                boss: bossByName,
-                reload: false,
-                loading: false
-            })
-        } else {
-
-            const initialID = nextPage * FEED_LIMIT + 1
-            const finalID = initialID + FEED_LIMIT - 1
-    
-            const loadedBoss = staticBoss.boss.filter((filtredBoss) => filtredBoss.id >= initialID && filtredBoss.id <= finalID)
-    
-            if (loadedBoss.length){
-                this.setState({ 
-                    
-                    boss: [...boss, ...loadedBoss],
-                    nextPage: nextPage + 1,
-                    loading: false,
-                    reload: false
-                })
-            } else {
-                this.setState({ 
-                    
+            //const bossByName = staticBoss.boss.filter(filtredBoss => filtredBoss.enemy.name.toLowerCase().includes(bossName))
+            getBossByName(bossName, nextPage).then(bossByName => {
+                this.setState({
+                    boss: bossByName,
                     reload: false,
-                    loading: false,
+                    loading: false
                 })
-            }
+            }).catch (err => {
+                console.log(err)
+            })
+            
+        } else {
+            getBossList(nextPage).then(loadedBoss => {
+                if (loadedBoss.length){
+                    this.setState({ 
+                        
+                        boss: [...boss, ...loadedBoss],
+                        nextPage: nextPage + 1,
+                        loading: false,
+                        reload: false
+                    })
+                } else {
+                    this.setState({ 
+                        
+                        reload: false,
+                        loading: false,
+                    })
+                }
+            }).catch (err => {
+                console.log(err)
+            })
+
         }
 
     }
 
     stateBossByName = (name) =>{
-        console.log(name)
         this.setState({bossName: name})
     }
 
@@ -78,7 +78,11 @@ export default class Boss extends React.Component {
                     ></SearchBar>
                     <Icon 
                         size={20} name='search1'
-                        onPress={() => {this.loadBoss()}}
+                        onPress={() => this.setState({
+                            nextPage: 1,
+                            boss: []
+                        }, () => {this.loadBoss()}
+                        )}
                     ></Icon>
                 </SameLine>
             </>
@@ -104,7 +108,7 @@ export default class Boss extends React.Component {
                     onRefresh = {() => this.reloadPage()}
                     refreshing = {reload}
 
-                    keyExtractor = {(item) => String(item.id)}
+                    keyExtractor = {(item) => String(item._id)}
                     renderItem = {({item}) => {
                         return (
                             <View style={{width: '50%'}}>
@@ -119,7 +123,7 @@ export default class Boss extends React.Component {
     }
 
     reloadPage = () => {
-        this.setState({reload: true, boss: [], nextPage: 0, bossName: null}, () => {
+        this.setState({reload: true, boss: [], nextPage: 1, bossName: null}, () => {
             this.loadMoreBoss()
         } )
     }

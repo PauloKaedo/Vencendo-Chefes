@@ -8,10 +8,8 @@ import {
     BossNameDetonated, BossDetonatedDescription
 } from '../../assets/styles'
 
-import nemesis1 from '../../assets/imgs/nemesisSlide1.jpg'
-
-import staticBoss from '../../assets/boss/boss.json'
 import { Card, CardContent } from 'react-native-cards'
+import { getBossById, getDetonatedByEnemyId, getImage } from '../../api'
 
 
 export default class BossShow extends React.Component{
@@ -21,21 +19,41 @@ export default class BossShow extends React.Component{
 
         this.state = {
             bossId: this.props.navigation.state.params.bossId,
-            boss: null
+            boss: null,
+            avatar: null,
+            detonated: null,
+            slides: []
         }
     }
 
     loadBoss = () => {
         const { bossId } = this.state
 
-        const bossFeeds = staticBoss.boss
-        const selectedBoss = bossFeeds.filter((boss) => boss.id === bossId) 
-        
-        if(selectedBoss.length){
+        getBossById(bossId).then(selectedBoss => {
+            if(selectedBoss.length){
+                const {image_1, image_2, image_3} = selectedBoss[0].enemy
+                this.setState({
+                    boss: selectedBoss[0],
+                    slides: [getImage(image_1), getImage(image_2), getImage(image_3)]
+                })
+            }
+        }).catch (err => {
+            console.log(err)
+        })
+
+        getDetonatedByEnemyId(bossId).then(detonatedResult => {
+
+            
             this.setState({
-                boss: selectedBoss[0]
+                detonated: detonatedResult[0].detonated
             })
-        }
+
+        }).catch (err => {
+            console.log(err)
+        })
+        
+        console.log(this.slides)
+        
     }
 
     componentDidMount = () => {
@@ -43,7 +61,7 @@ export default class BossShow extends React.Component{
     }
 
     showSlides = () =>{
-        const slides = [nemesis1]
+        const { slides } = this.state
 
         return(
             <SliderBox
@@ -58,7 +76,7 @@ export default class BossShow extends React.Component{
     }
 
     render = () =>{
-        const { boss } = this.state
+        const { boss,detonated } = this.state
 
         if(boss){
             return(
@@ -72,7 +90,7 @@ export default class BossShow extends React.Component{
                     </CardView>
                     <Card>
                         <CardContent>
-                            <BossDetonatedDescription>{boss.enemy.detonated}</BossDetonatedDescription>
+                            <BossDetonatedDescription>{detonated}</BossDetonatedDescription>
                         </CardContent>
                     </Card>
                 </>

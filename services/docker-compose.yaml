@@ -1,0 +1,54 @@
+version: '3'
+services:
+  boss:
+    image: vencendochefes
+    build: ./dockerfiles/servicos
+    hostname: boss
+    expose:
+      - '5001'
+    volumes:
+      - './boss:/servico'
+    command: python3 service.py
+    ports:
+      - '5001:5001'
+  comments:
+    image: vencendochefes
+    build: ./dockerfiles/servicos
+    hostname: comments
+    expose:
+      - '5002'
+    volumes:
+      - './comments:/servico'
+    command: python3 service.py
+    ports:
+      - '5002:5002'
+  detonated:
+    image: vencendochefes
+    build: ./dockerfiles/servicos
+    hostname: detonated
+    expose:
+      - '5003'
+    volumes:
+      - './detonated:/servico'
+    command: python3 service.py
+    ports:
+      - '5003:5003'
+  database:
+    image: mysql
+    hostname: database
+    expose:
+      - '3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - '3306:3306'
+  files:
+    image: arquivos
+    build: ./dockerfiles/nginx
+    volumes:
+      - './assets/images:/usr/share/nginx/html'
+    hostname: files
+    expose:
+      - '80'
+    ports:
+      - '8080:80'

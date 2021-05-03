@@ -10,13 +10,9 @@ import {
     CommentTitle, BossName, BossDescription, BossDifficult, EasyCount, DifficultCount
 } from '../../assets/styles'
 
-import nemesis1 from '../../assets/imgs/nemesisSlide1.jpg'
-import nemesis2 from '../../assets/imgs/nemesisSlide2.jpg'
-import nemesis3 from '../../assets/imgs/nemesisSlide3.jpg'
-
-import staticBoss from '../../assets/boss/boss.json'
 import CommentCard from '../../components/CommentCard'
-import { Text } from 'react-native-elements'
+
+import { getBossById, getCommentById, getImage } from '../../api'
 
 export default class BossShow extends React.Component{
 
@@ -26,30 +22,36 @@ export default class BossShow extends React.Component{
         this.state = {
             navigator: this.props.navigation.state.params.navigator,
             bossId: this.props.navigation.state.params.bossId,
-            boss: null
+            boss: null,
+            slides: [],
+            comments: []
         }
     }
 
     loadBoss = () => {
         const { bossId } = this.state
 
-        const bossFeeds = staticBoss.boss
-        const selectedBoss = bossFeeds.filter((boss) => boss.id === bossId) 
-        
-        if(selectedBoss.length){
-            this.setState({
-                boss: selectedBoss[0]
-            })
-        }
+        getBossById(bossId).then(selectedBoss => {
+            if(selectedBoss.length){
+                const {image_1, image_2, image_3} = selectedBoss[0].enemy
+                this.setState({
+                    boss: selectedBoss[0],
+                    slides: [getImage(image_1), getImage(image_2), getImage(image_3)]
+                })
+            }
+            this.getComments();
+        }).catch (err => {
+            console.log(err)
+        })
+
     }
 
     componentDidMount = () => {
-        this.loadBoss();
+        this.loadBoss()
     }
 
     showSlides = () =>{
-        const slides = [nemesis1, nemesis2, nemesis3]
-
+        const slides = this.state.slides
         return(
             <SliderBox
                 dotColor={'#667292'}
@@ -73,15 +75,18 @@ export default class BossShow extends React.Component{
         )
     }
 
-    getComments = (comments) => {
-        return (
-            comments.map((comment) => {
-            
-                return (
-                    <CommentCard name={comment.name} comment={comment.comment}></CommentCard>
-                )
-            })
-        )
+    getComments = () => {
+        const { bossId } = this.state
+
+         getCommentById(bossId).then(comments => {
+            this.setState({comments: [...this.state.comments, ...comments]})            
+        }).catch (err => {
+            console.log(err)
+        })
+    }
+
+    renderComments() {
+        return this.state.comments.map(comment => <CommentCard name={comment.name} comment={comment.comment} key={comment._id}></CommentCard>)        
     }
 
     render = () =>{
@@ -91,7 +96,7 @@ export default class BossShow extends React.Component{
             return(
                 <>
                     <TouchableOpacity onPress = {() =>{
-                        navigator.navigate("BossDetonated", {bossId: boss.id, navigator: navigator})
+                        navigator.navigate("BossDetonated", {bossId: boss._id, navigator: navigator})
                     }}>
                         <CardView
                             cardElevaton={2}
@@ -110,7 +115,7 @@ export default class BossShow extends React.Component{
                         </CardView>
                     </TouchableOpacity>
                     <CommentTitle>Comentários dos Especialistas</CommentTitle>
-                    {this.getComments(boss.comments)}
+                    {this.renderComments()}
                     
                 </>
             )

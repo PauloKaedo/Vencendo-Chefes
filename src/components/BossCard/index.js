@@ -7,7 +7,8 @@ import {
     Avatar, GameName, BossName, BossDifficult, EasyCount, DifficultCount, FlavuorText
 } from '../../assets/styles'
 
-import avatar from '../../assets/imgs/nemesis.jpg'
+//import avatar from '../../assets/imgs/nemesis.jpg'
+import { getImage } from '../../api'
 
 export default class BossCard extends React.Component{
     constructor (props){
@@ -25,10 +26,10 @@ export default class BossCard extends React.Component{
         const { bossFeed, navigator } = this.state
         return(
             <TouchableOpacity onPress = {() =>{
-                navigator.navigate("BossShow", {bossId: bossFeed.id, navigator: navigator})
+                navigator.navigate("BossShow", {bossId: bossFeed._id, navigator: navigator})
             }}>
             <Card>
-                <CardImage source={avatar}></CardImage>
+                <CardImage source={getImage(bossFeed.enemy.avatar)}></CardImage>
                 <CardContent>
                     <BossName>{bossFeed.enemy.name}</BossName>
                 </CardContent>
